@@ -16,7 +16,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 // Create layer for tectonic plates
 tectonicPlates = new L.layerGroup();
 
-    // Perform a GET request to the tectonicplatesURL
+// Perform a GET request to the tectonicplatesURL
 d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function (plates) {
 
         // Console log the data retrieved 

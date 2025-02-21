@@ -32,13 +32,17 @@ function createFeatures(earthquakeData) {
     function onEachFeature(feature, layer) {
         layer.bindPopup(`<h3>${"Magnitude: "}${feature.properties.mag}${" Richter"}<p>
 		                     ${"Location: "}${feature.properties.place}</p></h3><hr><p>
-							 ${"Date & Time: "}${new Date(feature.properties.time)}</p>
-					      <b>${"Type: "}${feature.properties.type}<br></b><hr>
-						  <b>${"Status: "}${feature.properties.status}<br></b><hr>
-						  <b>${"Tsunami: "}${feature.properties.tsunami}<br></b><hr>
+						    ${"Date & Time: "}${new Date(feature.properties.time)}</p>
+					         <b>${"Type: "}${feature.properties.type}<br></b><hr>
+						 <b>${"Status: "}${feature.properties.status}<br></b><hr>
+						 <b>${"Tsunami: "}${feature.properties.tsunami}<br></b><hr>
 						 
-						  <b>${"USGS Powered By HauHet plc. v1.0.0  "}<br></b><hr>
+					         <b>${"USGS Powered By HauHet plc. v1.0.0  "}<br></b><hr>
 						 
-		                  <b><a href='${feature.properties.url}' target="_blank" >Data Details</a>.</b>  `);
-    }
+		                     <b><a href='${feature.properties.url}' target="_blank" >Data Details</a>.</b>  `);
     
+  }
+	
+     // // Create a GeoJSON layer that contains the features array on the earthquakeData object.
+    // // Run the onEachFeature function once for each piece of data in the array.
+    // let earthquakes = L.geoJSON(earthquakeData, {onEachFeature: onEachFeature});

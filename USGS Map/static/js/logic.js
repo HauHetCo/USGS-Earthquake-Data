@@ -46,3 +46,29 @@ function createFeatures(earthquakeData) {
      // // Create a GeoJSON layer that contains the features array on the earthquakeData object.
     // // Run the onEachFeature function once for each piece of data in the array.
     // let earthquakes = L.geoJSON(earthquakeData, {onEachFeature: onEachFeature});
+
+    //This function determines the radius of the earthquake marker based on its magnitude.
+    // Earthquakes with a magnitude of 0 will be plotted with a radius of 1.
+    function getRadius(magnitude) { return magnitude * 4 }
+
+    // CHanging marker to Circle marker, size depends on magnitude & color depends on depth 
+     let earthquakes = L.geoJSON(earthquakeData, {
+        pointToLayer: function(feature, latlng) {
+            return new L.CircleMarker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.7,
+                fillColor: getColor(feature.geometry.coordinates[2]),
+                radius: getRadius(feature.properties.mag),
+                color: "black",
+                stroke: true,
+                weight: 0.5
+            });
+        },
+        onEachFeature: onEachFeature
+    });
+
+ 
+    // Send our earthquakes layer to the createMap function/
+    createMap(earthquakes);
+}
+

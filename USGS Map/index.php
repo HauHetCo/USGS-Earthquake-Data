@@ -29,6 +29,13 @@ Estonia
 <html lang="en">
 
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T9Z73XKQ');</script>
+<!-- End Google Tag Manager -->
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,7 +67,7 @@ Estonia
     <meta name="msapplication-TileImage" content="favicon/mstile-144x144.png?v=1.0">
     <meta name="theme-color" content="#ffffff">
     
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
   <title>USGS Earthquakes :: By HauHet plc.</title>
 
@@ -69,8 +76,10 @@ Estonia
 
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="static/css/style.css">
-	
   
+  <script src="static/copyright.js"></script>
+  
+
 <script type="application/ld+json">
 	{
 	  "@context": "https://schema.org",
@@ -102,6 +111,7 @@ Advanced Distribution Management System"
 
   <!-- The div that holds our map -->
   <div id="map"></div>
+
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"

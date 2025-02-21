@@ -24,3 +24,21 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
         L.geoJSON(plates, {color: "orange",weight: 2}).addTo(tectonicPlates);
 });
 
+// CREATING FEATURES FUNCTIONS
+function createFeatures(earthquakeData) {
+
+    // Define a function that we want to run once for each feature in the features array.
+    // Give each feature a popup that describes the place and time of the earthquake.
+    function onEachFeature(feature, layer) {
+        layer.bindPopup(`<h3>${"Magnitude: "}${feature.properties.mag}${" Richter"}<p>
+		                     ${"Location: "}${feature.properties.place}</p></h3><hr><p>
+							 ${"Date & Time: "}${new Date(feature.properties.time)}</p>
+					      <b>${"Type: "}${feature.properties.type}<br></b><hr>
+						  <b>${"Status: "}${feature.properties.status}<br></b><hr>
+						  <b>${"Tsunami: "}${feature.properties.tsunami}<br></b><hr>
+						 
+						  <b>${"USGS Powered By HauHet plc. v1.0.0  "}<br></b><hr>
+						 
+		                  <b><a href='${feature.properties.url}' target="_blank" >Data Details</a>.</b>  `);
+    }
+    

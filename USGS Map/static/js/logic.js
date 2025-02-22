@@ -72,3 +72,32 @@ function createFeatures(earthquakeData) {
     createMap(earthquakes);
 }
 
+
+// Creating Color palette based on depth & creating the legend
+// This function determines the color of the circle based on the depth of the earthquake.
+function getColor(depth) {
+    if (depth < 10) { return "#387D38" }
+    if (depth < 30) { return "#d4ee00" }
+    if (depth < 50) { return "#eecc00" }
+    if (depth < 70) { return "#ee9c00" }
+    if (depth < 90) { return "#ea822c" }
+    return "#FF0000";
+
+}
+
+// Create a legend control object.
+let legend = L.control({ position: "bottomright" });
+
+// Define function when legend is added
+legend.onAdd = function() {
+    let div = L.DomUtil.create("div", "info legend");
+    let depth = [-10, 10, 30, 50, 70, 90];
+        div.innerHTML += "<h3 style='text-align: center'>Depth</h3>"
+    
+    // Loop through depth, and create a new legend object
+    for (let i = 0; i < depth.length; i++) {
+        div.innerHTML += '<i style="background:' + getColor(depth[i] + 1) + '"></i> ' + depth[i] + (depth[i + 1] ? '&ndash;' + depth[i + 1] + '<br>' : '+');
+    }
+        return div;
+};
+

@@ -101,3 +101,25 @@ legend.onAdd = function() {
         return div;
 };
 
+// CREATING MAP FUNCTION with layers & objects
+function createMap(earthquakes) {
+
+    // Create the base Street Map layers.
+    let street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Powered By Map Data: &copy; <a href="https://hauhet.co/">HauHet plc.</a>'
+    });
+
+    // Create the Topographic Map layers.
+    let topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        attribution: 'Powered By Map Data:: &copy; <a href="https://hauhet.co/">HauHet plc.</a> , <a href="http://viewfinderpanoramas.org">SRTM</a>'
+    });
+
+    let USGS_USImageryTopo = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryTopo/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles courtesy of the <a href="https://usgs.gov/">U.S. Geological Survey</a>'
+    });
+	
+    let CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+	attribution: 'Powered By Map Data:: &copy; <a href="https://hauhet.co/">HauHet plc.</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	subdomains: 'abcd'
+
+});

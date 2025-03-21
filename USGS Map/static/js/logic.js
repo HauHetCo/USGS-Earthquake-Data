@@ -123,3 +123,41 @@ function createMap(earthquakes) {
 	subdomains: 'abcd'
 
 });
+
+    // Create a baseMaps object.
+    let baseMaps = { "Street Map": street, "Topographic Map": topo , "CartoDB": CartoDB_DarkMatter, "USGS": USGS_USImageryTopo };
+
+    // Create an overlay object.
+    let overlayMaps = { "Earthquakes": earthquakes ,"Tectonic Plates": tectonicPlates};
+
+    // Create our map, giving it the streetmap and earthquakes layers to display on load.
+    let myMap = L.map("map", { center: [53.0000, 9.0050], zoom: 4, layers: [topo, earthquakes, tectonicPlates] });
+
+
+    // Create a layer control.   // Pass it our baseMaps and overlayMaps.   // Add the layer control to the map.
+    L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(myMap);
+    legend.addTo(myMap);
+
+	L.Control.Watermark = L.Control.extend({
+		onAdd(map) {
+			const img = L.DomUtil.create('img');
+
+			img.src = 'https://hauhet.co/ai/static/img/logo.png';
+			img.style.width = '60px';
+			img.onclick = function() { window.location.href = 'https://hauhet.co/usgs/' } ;
+
+			return img;
+		},
+
+		onRemove(map) {
+			// Nothing to do here
+		}
+	});
+
+	L.control.watermark = function (opts) {
+		return new L.Control.Watermark(opts);
+	};
+	
+	const watermarkControl = L.control.watermark({position: 'bottomleft'}).addTo(myMap);
+
+};

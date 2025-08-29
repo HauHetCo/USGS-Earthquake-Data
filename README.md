@@ -9,7 +9,7 @@ The [United States Geological Survey](https://www.usgs.gov/), or USGS for short,
 
 
 ## USGS Earthquakes by HauHet plc. 
-[Live Data](https://hauhet.co/ai/)
+[Live Data](https://hauhet.co/usgs/)
 
 
 ## Contents

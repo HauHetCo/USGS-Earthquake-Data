@@ -32,10 +32,10 @@ function createFeatures(earthquakeData) {
     function onEachFeature(feature, layer) {
         layer.bindPopup(`<h3>${"Magnitude: "}${feature.properties.mag}${" Richter"}<p>
 		                     ${"Location: "}${feature.properties.place}</p></h3><hr><p>
-						    ${"Date & Time: "}${new Date(feature.properties.time)}</p>
+						     ${"Date & Time: "}${new Date(feature.properties.time)}</p>
 					         <b>${"Type: "}${feature.properties.type}<br></b><hr>
-						 <b>${"Status: "}${feature.properties.status}<br></b><hr>
-						 <b>${"Tsunami: "}${feature.properties.tsunami}<br></b><hr>
+						     <b>${"Status: "}${feature.properties.status}<br></b><hr>
+						     <b>${"Tsunami: "}${feature.properties.tsunami}<br></b><hr>
 						 
 					         <b>${"USGS Powered By HauHet plc. v1.0.0  "}<br></b><hr>
 						 
@@ -131,20 +131,20 @@ function createMap(earthquakes) {
     let overlayMaps = { "Earthquakes": earthquakes ,"Tectonic Plates": tectonicPlates};
 
     // Create our map, giving it the streetmap and earthquakes layers to display on load.
-    let myMap = L.map("map", { center: [53.0000, 9.0050], zoom: 4, layers: [topo, earthquakes, tectonicPlates] });
-
+    let myMap = L.map("map", { center: [53.0000, 9.0050], zoom: 4, layers: [topo, earthquakes, tectonicPlates]  });
 
     // Create a layer control.   // Pass it our baseMaps and overlayMaps.   // Add the layer control to the map.
     L.control.layers(baseMaps, overlayMaps, { collapsed: false }).addTo(myMap);
     legend.addTo(myMap);
-
+	
+	
 	L.Control.Watermark = L.Control.extend({
 		onAdd(map) {
 			const img = L.DomUtil.create('img');
 
-			img.src = 'https://hauhet.co/ai/static/img/logo.png';
+			img.src = 'https://hauhet.co/app/usgs/static/img/logo.png';
 			img.style.width = '60px';
-			img.onclick = function() { window.location.href = 'https://hauhet.co/usgs/' } ;
+			img.onclick = function() { window.location.href = 'https://hauhet.co/' } ;
 
 			return img;
 		},
@@ -159,5 +159,7 @@ function createMap(earthquakes) {
 	};
 	
 	const watermarkControl = L.control.watermark({position: 'bottomleft'}).addTo(myMap);
+
+
 
 };

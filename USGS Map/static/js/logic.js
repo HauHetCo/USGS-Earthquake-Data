@@ -142,7 +142,7 @@ function createMap(earthquakes) {
 		onAdd(map) {
 			const img = L.DomUtil.create('img');
 
-			img.src = 'https://hauhet.co/app/usgs/static/img/logo.png';
+			img.src = 'https://hauhet.app/app/usgs/static/img/logo.png';
 			img.style.width = '60px';
 			img.onclick = function() { window.location.href = 'https://hauhet.co/' } ;
 
